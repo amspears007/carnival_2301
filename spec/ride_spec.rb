@@ -1,4 +1,5 @@
 require_relative 'spec_helper'
+require './lib/ride'
 
 RSpec.describe Ride do
   let(:ride1) {Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })}
@@ -33,10 +34,8 @@ RSpec.describe Ride do
       visitor1 => 2,
       visitor2 =>1
       })
-  end
-
-  xit 'reduces spending money of rider by the admission fee when they board a ride' do
     expect(visitor1.spending_money).to eq(8)
-    expect(visitor1.spending_money).to eq(4)
-  end
+    expect(visitor2.spending_money).to eq(4)
+    expext(ride1.total_revenue).to eq(3)
+    end
 end
