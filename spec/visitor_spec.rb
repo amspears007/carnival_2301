@@ -2,6 +2,8 @@ require_relative 'spec_helper'
 
 RSpec.describe Visitor do
   let(:visitor1)  {Visitor.new('Bruce', 54, '$10')}
+  let(:visitor2)  {Visitor.new('Tucker', 36, '$5')}
+  let(:visitor3)  {Visitor.new('Penny', 64, '$15')}
   
     it 'exists' do
     visitor1 = Visitor.new('Bruce', 54, '$10')
@@ -20,5 +22,15 @@ RSpec.describe Visitor do
     visitor1.add_preference(:water)
 
     expect(visitor1.preferences).to eq([:gentle, :water])
+  end
+
+  it 'checks if visitor is tall enough for ride' do
+    visitor2 = Visitor.new('Tucker', 36, '$5')
+    visitor3 = Visitor.new('Penny', 64, '$15')
+
+    expect(visitor1.tall_enough?(54)).to eq(true)
+    expect(visitor2.tall_enough?(54)).to eq(false)
+    expect(visitor3.tall_enough?(54)).to eq(true)
+    expect(visitor1.tall_enough?(64)).to eq(false)
   end
 end
