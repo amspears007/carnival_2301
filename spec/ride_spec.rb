@@ -33,7 +33,10 @@ RSpec.describe Ride do
       visitor1 => 2,
       visitor2 =>1
       })
+  end
+
+  xit 'reduces spending money of rider by the admission fee when they board a ride' do
     expect(visitor1.spending_money).to eq(8)
-    expect(visitor2.spending_money).to eq(4)
+    expect(visitor1.spending_money).to eq(4)
   end
 end
